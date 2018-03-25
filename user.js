@@ -2,8 +2,71 @@ const express = require('express');
 const session = require('wafer-node-session');
 const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
-
 const config = require('./configs');
+
+var MongoClient = require('mongodb').MongoClient,
+      test = require('assert');
+
+const dburl = 'mongodb://'+config.mongoUser+':'+config.mongoPass+'@'+config.mongoHost+':'+config.mongoPort+'/'+config.mongoDb
+
+function insertDB(docs, res){
+    MongoClient.connect(dburl, function(err, db) {
+        // Get a collection
+        var collection = db.collection('voted');
+        collection.findOne({'user':docs.user}).then(function(item) {
+            if (null == item){
+                collection.insertOne({'user': docs.user, 'voted': 1, 'votedHero': Math.pow(2, docs.hero)})
+                var heroCollection = db.collection('hero');
+                heroCollection.findOne({'hero':docs.hero}).then(function(heros) {
+                test.equal(docs.hero, heros.hero)
+                heroCollection.updateOne({'hero': docs.hero}, {$set:{'score': heros.score+1}})
+                res.send('ok')
+                db.close();
+                });
+
+            }
+            else{
+                if (item.votedHero >> docs.hero & 1) {
+                    db.close()
+                    res.send('bad')
+                }
+                else {
+                    collection.updateOne({'user': docs.user}, {$set:{'voted': item.voted+1, 'votedHero':item.votedHero + Math.pow(2, docs.hero)}})
+                    var heroCollection = db.collection('hero');
+                    heroCollection.findOne({'hero':docs.hero}).then(function(heros) {
+                    test.equal(docs.hero, heros.hero)
+                    heroCollection.updateOne({'hero': docs.hero}, {$set:{'score': heros.score+1}})
+                    res.send('ok')
+                    db.close();
+                    });
+                }
+            }
+            });
+        })
+}
+
+function getScore(res){
+    MongoClient.connect(dburl, function(err, db) {
+    // Get a collection
+    var collection = db.collection('hero');
+    collection.find().toArray(function(err, docs) {
+        test.equal(null, err)
+        db.close();
+        res.json({ 'score': docs});
+        });
+    })
+}
+
+function getVoted(user, res){
+    MongoClient.connect(dburl, function(err, db) {
+    // Get a collection
+    var collection = db.collection('voted');
+    collection.findOne({'user': user}).then(function(docs) {
+        db.close();
+        res.json(docs)
+        });
+    })
+}
 
 var app = express()
 
@@ -33,29 +96,17 @@ app.use('/me', function(req, res, next) {
     }
 })
 
-app.get('/', function(req, res){
-    res.send('hello')
-})
-
 app.post('/vote', function(req, res){
-    res.send('ok')
+    insertDB(req.body, res)
 })
 
 app.get('/vote', function(req, res){
     //二进制每一位代表一个人
-    res.json({
-        'voted': 0,
-        'votedHero': 2
-    })
+    getVoted(req.query.user, res)
 })
 
 app.get('/score', function(req, res){
-    res.json({'score':
-        {0: 20,
-         1: 30,
-         2: 1455},
-    }
-    )
+    getScore(res)
 })
 
 var server = app.listen(8080, function () {
