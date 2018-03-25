@@ -1,0 +1,39 @@
+2018-03-24T11:27:57.269+0800 I CONTROL  [initandlisten] MongoDB starting : pid=10591 port=27017 dbpath=/Users/liujue/workspace/my_code/wxapp-nodebacend/data/mongodb 64-bit host=rem.local
+2018-03-24T11:27:57.270+0800 I CONTROL  [initandlisten] db version v3.4.10
+2018-03-24T11:27:57.270+0800 I CONTROL  [initandlisten] git version: 078f28920cb24de0dd479b5ea6c66c644f6326e9
+2018-03-24T11:27:57.271+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2n  7 Dec 2017
+2018-03-24T11:27:57.271+0800 I CONTROL  [initandlisten] allocator: system
+2018-03-24T11:27:57.271+0800 I CONTROL  [initandlisten] modules: none
+2018-03-24T11:27:57.271+0800 I CONTROL  [initandlisten] build environment:
+2018-03-24T11:27:57.272+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2018-03-24T11:27:57.272+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-03-24T11:27:57.272+0800 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, storage: { dbPath: "data/mongodb" }, systemLog: { destination: "file", path: "data/mongodb/logs/wx.log" } }
+2018-03-24T11:27:57.273+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3584M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2018-03-24T11:27:57.481+0800 I CONTROL  [initandlisten] 
+2018-03-24T11:27:57.482+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-03-24T11:27:57.482+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-03-24T11:27:57.483+0800 I CONTROL  [initandlisten] 
+2018-03-24T11:27:57.533+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/Users/liujue/workspace/my_code/wxapp-nodebacend/data/mongodb/diagnostic.data'
+2018-03-24T11:27:57.608+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2018-03-24T11:27:57.609+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2018-03-24T11:27:57.625+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2018-03-24T11:27:57.626+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2018-03-24T11:27:57.627+0800 I NETWORK  [thread1] waiting for connections on port 27017
+2018-03-24T19:15:09.852+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 0, after opcounters: 0, after opcountersRepl: 0, after repl: 0, after security: 0, after storageEngine: 0, after wiredTiger: 155242, at end: 155242 }
+2018-03-24T22:23:20.804+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 139ms
+2018-03-24T22:46:45.765+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 165ms
+2018-03-24T23:01:15.765+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 156ms
+2018-03-25T04:12:19.785+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 239940, after asserts: 239940, after backgroundFlushing: 239940, after connections: 239940, after dur: 239940, after extra_info: 239940, after globalLock: 239940, after locks: 239940, after network: 239940, after opLatencies: 239940, after opcounters: 239940, after opcountersRepl: 239940, after repl: 239940, after security: 239940, after storageEngine: 239940, after wiredTiger: 239940, at end: 239950 }
+2018-03-25T05:21:16.814+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 0, after opcounters: 0, after opcountersRepl: 0, after repl: 0, after security: 0, after storageEngine: 275888, after wiredTiger: 275917, at end: 275917 }
+2018-03-25T05:51:57.845+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 145ms
+2018-03-25T05:55:50.809+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 0, after opcounters: 0, after opcountersRepl: 0, after repl: 0, after security: 0, after storageEngine: 0, after wiredTiger: 196069, at end: 196069 }
+2018-03-25T06:50:50.881+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 195857, after asserts: 195857, after backgroundFlushing: 195857, after connections: 195857, after dur: 195857, after extra_info: 195857, after globalLock: 195857, after locks: 195857, after network: 195857, after opLatencies: 195857, after opcounters: 195857, after opcountersRepl: 195857, after repl: 195857, after security: 195857, after storageEngine: 195857, after wiredTiger: 196016, at end: 196056 }
+2018-03-25T07:02:46.812+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 174ms
+2018-03-25T08:34:54.805+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 0, after opcounters: 0, after opcountersRepl: 0, after repl: 0, after security: 0, after storageEngine: 0, after wiredTiger: 564036, at end: 564036 }
+2018-03-25T08:39:25.889+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 233892, after locks: 233892, after network: 233892, after opLatencies: 233892, after opcounters: 233892, after opcountersRepl: 233892, after repl: 233892, after security: 233892, after storageEngine: 233892, after wiredTiger: 234096, at end: 234096 }
+2018-03-25T08:43:14.816+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 154ms
+2018-03-25T09:09:25.827+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 563051, after opcounters: 563051, after opcountersRepl: 563051, after repl: 563051, after security: 563051, after storageEngine: 563051, after wiredTiger: 563051, at end: 563051 }
+2018-03-25T09:15:58.841+0800 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after backgroundFlushing: 0, after connections: 0, after dur: 0, after extra_info: 0, after globalLock: 0, after locks: 0, after network: 0, after opLatencies: 0, after opcounters: 0, after opcountersRepl: 0, after repl: 0, after security: 0, after storageEngine: 0, after wiredTiger: 177054, at end: 177054 }
+2018-03-25T10:45:22.831+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 116ms
+2018-03-25T10:54:17.844+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 153ms
+2018-03-25T13:03:35.878+0800 I COMMAND  [PeriodicTaskRunner] task: UnusedLockCleaner took: 130ms
